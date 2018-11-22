@@ -4,7 +4,12 @@ require __DIR__ . '/vendor/autoload.php';
 $app = new Slim\App;
 
 $app->get('/', function($request, $response){
-    return 'Hallo semuanya';
+    $data = array(
+        'name' => 'Yogs',
+        'age' => 40
+    );
+
+    return $response->withJson($data, 200);
 });
 
 $app->get('/forum[/{title}]', function($request, $response, $args){
